@@ -1,140 +1,142 @@
-# 📋 SIMKU (Sistem Informasi Manajemen Kartu Ujian)
+# SIMKU (Sistem Informasi Manajemen Kartu Ujian)
 
-**SIMKU** adalah aplikasi manajemen kartu ujian sekolah berbasis desktop & offline-first. Aplikasi ini dirancang untuk memudahkan panitia ujian sekolah dalam mengelola data peserta, penomoran peserta otomatis, pembagian ruang ujian, hingga pencetakan kartu ujian dan nomor bangku yang presisi pada kertas A4.
+<p align="center">
+  <img src="icon.ico" alt="SIMKU Logo" width="120" height="120">
+</p>
+
+<p align="center">
+  <strong>Aplikasi Desktop Manajemen & Cetak Kartu Peserta Ujian Serta Nomor Bangku Siswa</strong><br>
+  <em>Cepat, Ringan, Presisi, dan 100% Offline</em>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Version-1.0.0-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/Platform-Windows-0078D6.svg?logo=windows&logoColor=white" alt="Platform">
+  <img src="https://img.shields.io/badge/Electron-Desktop-47848F.svg?logo=electron&logoColor=white" alt="Electron">
+  <img src="https://img.shields.io/badge/React-18.x-61DAFB.svg?logo=react&logoColor=black" alt="React">
+  <img src="https://img.shields.io/badge/TailwindCSS-3.4-38B2AC.svg?logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
+  <img src="https://img.shields.io/badge/Dexie.js-IndexedDB-orange.svg" alt="Dexie.js">
+</p>
 
 ---
 
-## ✨ Fitur Utama
+## 📖 Tentang Aplikasi
 
-- **📂 Import Data Dapodik (Excel)**:
-  - Mendukung import langsung file Excel/Dapodik (`.xlsx`, `.xls`, `.csv`).
-  - Otomatis memetakan kolom Nama, NISN/NIS, Jenis Kelamin, dan Rombel/Kelas.
+**SIMKU (Sistem Informasi Manajemen Kartu Ujian)** adalah aplikasi desktop luring (*offline-first*) yang dirancang khusus untuk mempermudah Panitia Ujian Sekolah dalam mengelola data peserta, penataan ruang ujian, serta mencetak kartu peserta ujian dan kartu nomor bangku secara cepat, rapi, dan presisi.
 
-- **🔢 Penomoran Peserta Otomatis**:
-  - Penomoran peserta (001, 002, dst.) otomatis disortir berdasarkan Kelas dan Nama saat data diimport.
-  - Tersedia tombol *Re-urutkan No. Peserta* untuk merapikan urutan kapan saja.
+Aplikasi ini mengutamakan kemudahan integrasi dengan data Dapodik (Excel), kecepatan upload foto siswa secara massal, serta keamanan privasi karena seluruh data (termasuk foto siswa dan tanda tangan) tersimpan secara lokal di komputer pengguna tanpa memerlukan koneksi internet maupun server eksternal seperti XAMPP.
 
-- **📸 Upload Foto Massal (.zip)**:
-  - Mendukung upload seluruh foto siswa sekaligus dalam satu file `.zip`.
-  - Sistem otomatis mencocokkan foto dengan data siswa berdasarkan **NISN** sebagai nama file foto.
+---
 
-- **🏫 Manajemen Ruang Ujian Fleksibel**:
-  - Fitur satu klik: *Ruang = Kelas* (jika siswa ujian di ruang kelasnya masing-masing).
+## ✨ Fitur Unggulan
+
+- 🔒 **100% Offline & Mandiri:**
+  - Tidak membutuhkan koneksi internet maupun server web eksternal (Apache/XAMPP).
+  - Seluruh data siswa, foto, logo, dan tanda tangan tersimpan aman di database lokal IndexedDB (Dexie.js).
+
+- 📊 **Import Cepat Data Dapodik (Excel):**
+  - Import data siswa sekaligus dengan deteksi kolom otomatis (Nama, NISN, Rombel/Kelas, Jenis Kelamin).
+  - Penomoran peserta (001, 002, dst.) langsung otomatis terurut rapi berdasarkan Kelas dan Nama.
+
+- 📸 **Upload Foto Massal (.zip):**
+  - Upload seluruh foto siswa sekaligus dalam satu file `.zip`.
+  - Sistem otomatis memetakan foto ke masing-masing siswa berdasarkan **NISN** sebagai nama file.
+
+- 🏫 **Manajemen Ruang Ujian Fleksibel:**
+  - Fitur satu klik: *Ruang = Kelas* (jika siswa menempati ruang belajar masing-masing).
   - Edit ruang langsung (*inline editing*) pada tabel per siswa.
-  - Tombol reset ruang ujian untuk mengosongkan pembagian ruang secara cepat.
+  - Tombol reset untuk mengosongkan pembagian ruang ujian secara instan.
 
-- **💳 Validasi & Watermark SPP**:
-  - Status pembayaran SPP (*Lunas* / *Terhutang*).
-  - Siswa dengan status Terhutang otomatis mendapatkan cap watermark transparan **"DENGAN PERJANJIAN"** pada kartu ujiannya.
+- 💳 **Validasi & Watermark SPP:**
+  - Pemantauan status administrasi SPP (*Lunas* / *Terhutang*).
+  - Kartu peserta siswa dengan status Terhutang otomatis tercetak dengan stempel watermark transparan **"DENGAN PERJANJIAN"**.
 
-- **🖨️ Cetak Kartu Peserta Ujian**:
-  - Ukuran presisi: `9.5 cm x 6.8 cm` (Landscape).
-  - Tata letak **Grid 2 Kolom x 4 Baris** yang muat pas **8 kartu per lembar kertas A4** tanpa terpotong.
-  - Dilengkapi Kop Sekolah resmi, Logo Sekolah, Foto Siswa, QR Code NISN, dan Tanda Tangan & Stempel Kepala Sekolah.
+- 🖨️ **Tata Letak Cetak Kartu A4 Presisi (Grid 2x4):**
+  - Ukuran kartu presisi: `9.5 cm x 6.8 cm` (Landscape).
+  - Tata letak **8 kartu per lembar kertas A4** (2 kolom x 4 baris) yang pas tanpa terpotong ke halaman berikutnya.
+  - Dilengkapi Kop Sekolah, Logo Sekolah, Foto Siswa, QR Code NISN, dan Tanda Tangan & Stempel Kepala Sekolah transparan.
 
-- **🏷️ Cetak Nomor Bangku**:
-  - Ukuran presisi yang sama dengan kartu peserta.
-  - Menampilkan Kop Sekolah, Jenis Ujian, dan Nomor Peserta berukuran besar di bagian tengah kartu untuk ditempel pada meja/bangku ujian.
+- 🏷️ **Cetak Nomor Bangku Masal:**
+  - Layout nomor bangku siap tempel di meja/bangku ujian dengan ukuran yang sama presisinya.
+  - Menampilkan Kop Sekolah, Jenis Ujian, dan Nomor Peserta berukuran besar di bagian tengah kartu.
 
-- **💾 100% Offline (IndexedDB via Dexie.js)**:
-  - Tidak memerlukan koneksi internet maupun web server lokal seperti XAMPP/Apache.
-  - Semua data dan gambar (foto siswa, logo, tanda tangan) tersimpan aman di penyimpanan lokal komputer pengguna.
-
-- **📦 Backup & Restore Lokal**:
-  - Ekspor seluruh data (termasuk semua gambar) ke dalam satu file `.json`.
-  - Kemudahan restore kapan saja saat aplikasi dipindahkan ke komputer/laptop lain.
-
-- **🖥️ Aplikasi Desktop Windows (.exe)**:
-  - Dikemas menggunakan Electron sehingga dapat di-install dan dijalankan layaknya aplikasi native Windows.
+- 💾 **Backup & Restore Data Lokal:**
+  - Ekspor seluruh database beserta semua foto siswa ke dalam satu file `.json`.
+  - Kemudahan migrasi data saat berpindah laptop/komputer panitia.
 
 ---
 
 ## 🛠️ Teknologi yang Digunakan
 
-- **Framework & UI**: [React 18](https://react.dev/), [Vite](https://vitejs.dev/), [Tailwind CSS](https://tailwindcss.com/)
-- **Desktop Wrapper**: [Electron](https://www.electronjs.org/), [electron-builder](https://www.electron.build/)
-- **Database Lokal**: [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) dengan wrapper [Dexie.js](https://dexie.org/)
-- **Ikon & Komponen**: [Lucide React](https://lucide.dev/), [react-qr-code](https://github.com/rosskhanas/react-qr-code)
-- **Pemrosesan File**: [SheetJS (xlsx)](https://sheetjs.com/), [JSZip](https://stuk.github.io/jszip/)
+- **Runtime & Desktop Wrapper:** [Electron](https://www.electronjs.org/)
+- **Frontend Framework:** [React 18](https://react.dev/), [Vite](https://vitejs.dev/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Database Lokal:** [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) via [Dexie.js](https://dexie.org/)
+- **Spreadsheet Engine:** [SheetJS (xlsx)](https://sheetjs.com/)
+- **Archive Handler:** [JSZip](https://stuk.github.io/jszip/)
+- **Icons & QR Code:** [Lucide React](https://lucide.dev/), [react-qr-code](https://github.com/rosskhanas/react-qr-code)
+- **Packaging:** [electron-builder](https://www.electron.build/) (NSIS Windows Installer)
 
 ---
 
-## 🚀 Panduan Memulai (Development)
+## 🚀 Memulai untuk Pengembangan (Development)
 
 ### Prasyarat
-- [Node.js](https://nodejs.org/) (Versi 18 LTS atau lebih baru disarankan)
+- [Node.js](https://nodejs.org/) (disarankan v18 ke atas)
 - [Git](https://git-scm.com/)
 
-### Instalasi & Menjalankan Aplikasi
+### Langkah Instalasi
 
-1. **Clone repository ini:**
+1. **Clone repository:**
    ```bash
    git clone https://github.com/nwmustofa/simku.git
    cd simku
    ```
 
-2. **Instal dependensi:**
+2. **Install dependensi:**
    ```bash
    npm install
    ```
 
-3. **Jalankan server pengembangan (Web):**
+3. **Jalankan aplikasi (Web Development mode):**
    ```bash
    npm run dev
    ```
-   Buka peramban di `http://localhost:5173`.
+   Aplikasi akan terbuka di browser pada alamat `http://localhost:5173`.
 
-> **Catatan (Pengguna Windows):**
-> Anda juga dapat menggunakan script siap pakai yang sudah disediakan:
-> - `setup.bat`: Menginstal dependensi dan langsung menjalankan aplikasi.
+> **💡 Tips Cepat (Windows):**
+> Anda juga dapat menggunakan file script siap pakai:
+> - `setup.bat`: Menginstal dependensi dan menyalakan server otomatis.
 > - `Mulai_SIMKU_Tersembunyi.vbs`: Menjalankan aplikasi di latar belakang tanpa jendela CMD hitam.
-> - `Hentikan_SIMKU.bat`: Menghentikan server SIMKU yang berjalan di latar belakang.
+> - `Hentikan_SIMKU.bat`: Menghentikan server aplikasi di latar belakang.
 
 ---
 
-## 📦 Membangun Paket Installer Windows (.exe)
+## 📦 Membuat Installer Windows (.exe)
 
-Untuk membuat file installer mandiri agar dapat dipasang di komputer lain tanpa perlu menginstal Node.js:
+Untuk mem-build aplikasi menjadi file installer mandiri (`.exe`) yang siap dipasang di laptop/PC lain:
 
-1. Pastikan Anda memiliki koneksi internet untuk mengunduh paket Electron saat pertama kali build.
-2. Jalankan perintah:
-   ```bash
-   npm run build:exe
-   ```
-   *(Atau cukup klik ganda file `Buat_Installer.bat`)*.
-3. Setelah proses selesai, file installer akan tersedia di folder:
-   ```
-   dist_installer/Aplikasi SIMKU Setup 1.0.0.exe
-   ```
+```bash
+npm run build:exe
+```
+*(Atau cukup klik ganda file `Buat_Installer.bat`)*.
+
+Hasil installer NSIS akan tersimpan di dalam folder `dist_installer/` dengan nama:
+`Aplikasi SIMKU Setup 1.0.0.exe`
 
 ---
 
-## 📁 Struktur Folder Proyek
+## 👨‍💻 Pengembang (Developer)
 
-```
-SIMKU/
-├── dist/                      # Hasil kompilasi web statis
-├── dist_installer/            # Hasil build installer Windows (.exe)
-├── src/
-│   ├── pages/
-│   │   ├── Dashboard.jsx      # Halaman ringkasan statistik siswa & kartu
-│   │   ├── Students.jsx       # Manajemen data siswa, import Excel, upload Zip, SPP
-│   │   ├── PrintPreview.jsx   # Layout & cetak kartu peserta ujian
-│   │   ├── PrintDesk.jsx      # Layout & cetak nomor bangku
-│   │   └── Settings.jsx       # Pengaturan kop surat, logo, ttd, & backup/restore
-│   ├── App.jsx                # Routing & Layout sidebar (HashRouter)
-│   ├── db.js                  # Konfigurasi database Dexie.js (IndexedDB)
-│   ├── index.css              # Styling Tailwind & CSS Grid print rules
-│   └── main.jsx               # Titik masuk utama React
-├── electron-main.cjs          # Skrip utama Electron untuk desktop window
-├── package.json               # Konfigurasi dependensi dan electron-builder
-├── vite.config.js             # Konfigurasi Vite
-└── .gitignore                 # Konfigurasi pengecualian file Git
-```
+Dikembangkan dengan penuh dedikasi oleh:
+**SIGIE Lab by Nur Wahid Mustofa**
+
+### ☕ Dukung Pengembangan
+Jika aplikasi ini bermanfaat dan membantu pekerjaan Anda di sekolah, Anda dapat mendukung pengembangan dan update fitur selanjutnya melalui:
+👉 **[Traktir Kopi / Cendol di Trakteer](https://trakteer.id/nur_wahid_musthofa/gift)**
 
 ---
 
 ## 📄 Lisensi
 
-Proyek ini dikembangkan untuk kebutuhan internal manajemen administrasi ujian sekolah. Bebas dimodifikasi dan dikembangkan sesuai kebutuhan masing-masing sekolah.
-
+Didistribusikan di bawah lisensi ISC / MIT. Silakan gunakan dan kembangkan untuk kemajuan pendidikan.
