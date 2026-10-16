@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0.5cm; /* Diperkecil agar muat 2 kolom (9.5cm x 2 + gap) = 19.5cm. Lebar A4 adalah 21cm. */
+  }
+
+  body * {
+    visibility: hidden;
+  }
+  
+  #print-area, #print-area * {
+    visibility: visible;
+  }
+  
+  #print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: grid !important;
+    grid-template-columns: repeat(2, 9.5cm);
+    justify-content: center;
+    align-content: flex-start;
+    gap: 0.3cm 0.5cm;
+  }
+
+  .print-card {
+    width: 9.5cm !important;
+    height: 6.8cm !important;
+    box-sizing: border-box;
+    page-break-inside: avoid;
+    border: 1px solid #000;
+    margin: 0 !important;
+  }
+}
