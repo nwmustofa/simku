@@ -182,6 +182,19 @@ export default function Settings() {
           </label>
         </div>
       </div>
+
+      {/* Footer Dukungan */}
+      <div className="text-center text-xs text-gray-400 py-2">
+        <span>SIMKU v1.0.0 by <b>SIGIE Lab</b> &bull; </span>
+        <a 
+          href="https://teer.id/nur_wahid_musthofa" 
+          target="_blank" 
+          rel="noreferrer" 
+          className="text-sage hover:underline font-medium"
+        >
+          ☕ Traktir Kopi / Dukung Pengembang di Trakteer
+        </a>
+      </div>
       
     </div>
   );

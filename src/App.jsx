@@ -32,8 +32,16 @@ function Sidebar() {
           );
         })}
       </nav>
-      <div className="p-4 text-xs text-center text-gray-400 border-t">
-        Offline Mode
+      <div className="p-4 text-xs text-center text-gray-400 border-t space-y-1">
+        <div>Offline Mode</div>
+        <a 
+          href="https://teer.id/nur_wahid_musthofa" 
+          target="_blank" 
+          rel="noreferrer" 
+          className="text-sage hover:underline block font-medium"
+        >
+          ☕ Dukung Pengembang
+        </a>
       </div>
     </div>
   );
